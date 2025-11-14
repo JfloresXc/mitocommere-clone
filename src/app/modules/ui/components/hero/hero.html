@@ -1,0 +1,102 @@
+<section class="section-hero next relative z-1">
+  <div
+    class="cr-slider relative overflow-hidden h-[80vh] max-[1200px]:h-[600px] max-[768px]:h-[500px] max-[480px]:h-[400px] max-[360px]:h-[350px]"
+  >
+    <div class="relative h-full">
+      @for (slide of slides; track slide.id) {
+        <div
+          [class]="
+            'transition-opacity duration-500 ease-in-out absolute inset-0 ' +
+            (currentSlide() === slide.id ? 'opacity-100 z-2' : 'opacity-0 z-1')
+          "
+        >
+          <div
+            [class]="
+              'cr-hero-banner w-full bg-no-repeat bg-cover bg-center h-[80vh] max-[1200px]:h-[600px] max-[768px]:h-[500px] max-[480px]:h-[400px] max-[360px]:h-[350px] relative'
+            "
+            [style.background-image]="'url(' + slide.image + ')'"
+          >
+            <div
+              class="flex hero-container flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]"
+            >
+              <div class="flex flex-wrap w-full">
+                <div class="w-full px-[12px]">
+                  <div
+                    class="cr-left-side-contain max-w-[550px] h-[80vh] flex flex-col justify-center max-[1200px]:max-w-[400px] max-[1200px]:h-[600px] max-[768px]:max-w-[290px] max-[768px]:h-[500px] max-[480px]:max-w-[250px] max-[480px]:h-[400px] max-[360px]:max-w-[210px] max-[360px]:h-[350px]"
+                    [class.animate-fade-in]="currentSlide() === slide.id"
+                  >
+                    <h5
+                      class="mb-[20px] text-[20px] font-Poppins font-bold leading-[1.2] max-[992px]:mb-[15px] max-[768px]:text-[14px] max-[768px]:font-normal"
+                    >
+                      <span
+                        class="mr-[5px] text-[#64b496] border-b-2 border-solid border-[#64b496] font-bold"
+                        >100%</span
+                      >
+                      {{ slide.subtitle }}
+                    </h5>
+                    <h1
+                      class="mb-[25px] text-[55px] font-Manrope font-extrabold leading-[68px] text-black relative max-[1400px]:text-[48px] max-[1400px]:leading-[56px] max-[1200px]:text-[40px] max-[1200px]:leading-[46px] max-[992px]:text-[28px] max-[992px]:leading-[36px] max-[992px]:mb-[20px] max-[768px]:text-[24px] max-[480px]:mb-0 max-[360px]:text-[20px] max-[360px]:leading-[26px] max-[320px]:text-[22px] max-[320px]:leading-[24px] max-[320px]:mb-[10px]"
+                    >
+                      {{ slide.title }}
+                    </h1>
+                    <p
+                      class="mb-0 text-[15px] font-Poppins text-[#7a7a7a] leading-[1.75] max-[768px]:text-[14px] max-[480px]:hidden"
+                    >
+                      {{ slide.description }}
+                    </p>
+                    <div
+                      class="cr-last-buttons mt-[30px] flex max-[992px]:mt-[18px]"
+                    >
+                      <a
+                        [href]="slide.buttonLink"
+                        class="cr-button mr-[20px] h-[40px] font-bold transition-all duration-300 ease-in-out py-[8px] px-[22px] text-[14px] font-Manrope capitalize leading-[1.2] bg-[#64b496] text-white border border-solid border-[#64b496] rounded-[5px] flex items-center justify-center hover:bg-black hover:border-black"
+                      >
+                        {{ slide.buttonText }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <button
+      (click)="previousSlide()"
+      class="absolute left-[20px] top-1/2 -translate-y-1/2 z-3 w-[40px] h-[40px] bg-white/80 hover:bg-[#64b496] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg max-[768px]:w-[35px] max-[768px]:h-[35px] max-[768px]:left-[10px] cursor-pointer"
+      aria-label="Slide anterior"
+    >
+      <i
+        class="ri-arrow-left-s-line text-[24px] text-black hover:text-white"
+      ></i>
+    </button>
+    <button
+      (click)="nextSlide()"
+      class="absolute right-[20px] top-1/2 -translate-y-1/2 z-3 w-[40px] h-[40px] bg-white/80 hover:bg-[#64b496] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg max-[768px]:w-[35px] max-[768px]:h-[35px] max-[768px]:right-[10px] cursor-pointer"
+      aria-label="Siguiente slide"
+    >
+      <i
+        class="ri-arrow-right-s-line text-[24px] text-black hover:text-white"
+      ></i>
+    </button>
+
+    <div
+      class="absolute bottom-[30px] left-1/2 -translate-x-1/2 z-3 flex gap-[10px] max-[768px]:bottom-[20px]"
+    >
+      @for (slide of slides; track slide.id) {
+        <button
+          (click)="goToSlide(slide.id)"
+          [class]="
+            'w-[10px] h-[10px] rounded-full transition-all duration-300 ' +
+            (currentSlide() === slide.id
+              ? 'bg-[#64b496] w-[30px]'
+              : 'bg-white/60 hover:bg-white')
+          "
+          [attr.aria-label]="'Ir al slide ' + (slide.id + 1)"
+        ></button>
+      }
+    </div>
+  </div>
+</section>

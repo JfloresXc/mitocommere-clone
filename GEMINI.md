@@ -72,6 +72,11 @@ ng lint
 *   **Styling:** Global styles are in `src/styles.css`, and component-specific styles are in their respective `.css` files.
 *   **Code Formatting:** The project includes a `.prettierrc.json` file, which suggests that Prettier is used for code formatting.
 
+## Angular CLI Commands
+
+-   **Generate Component:** When generating a new component, use the following command to ensure consistency:
+    `ng g c component/nombre-componente --skip-tests --inline-style`
+
 ## Angular Best Practices
 
 You are an expert in TypeScript, Angular, and scalable web application development. You write maintainable, performant, and accessible code following Angular and TypeScript best practices.
