@@ -41,7 +41,7 @@ export class Hero implements OnInit, OnDestroy {
   slides: Slide[] = [
     {
       id: 0,
-      image: '/img/banner/banner.jpg',
+      image: '/img/banner/banner-1.jpg',
       subtitle: 'Verduras Orgánicas',
       title: 'La mejor manera de cuidar tu salud.',
       description:

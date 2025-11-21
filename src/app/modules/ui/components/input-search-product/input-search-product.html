@@ -1,0 +1,68 @@
+<form class="cr-search relative max-[576px]:max-w-[350px] max-[576px]:m-auto">
+  <input
+    class="search-input w-[600px] h-[45px] pl-[15px] pr-[175px] border border-solid border-[#64b496] rounded-[5px] outline-0 max-[1400px]:w-[400px] max-[992px]:max-w-[350px] max-[576px]:w-full max-[420px]:pr-[45px] focus:border-[#4a9577] transition-colors duration-200"
+    type="text" placeholder="Buscar productos..." autocomplete="off" />
+  <select
+    class="form-select mr-[10px] w-[120px] h-[calc(100%-2px)] border-0 tracking-[0] absolute top-1 pt-1.5 pb-1.5 pl-2 outline-0 right-[45px] text-[13px] border-l border-solid border-[#64b496] rounded-none max-[420px]:hidden cursor-pointer"
+    aria-label="Seleccionar categoría">
+    <option value="all">Todas</option>
+    <option value="frutas">Frutas</option>
+  </select>
+  <button type="submit"
+    class="search-btn w-[45px] bg-[#64b496] absolute right-0 top-0 bottom-0 rounded-r-[5px] flex items-center justify-center hover:bg-[#4a9577] transition-colors duration-200 cursor-pointer"
+    aria-label="Buscar">
+    <i class="ri-search-line text-[14px] text-white"></i>
+  </button>
+
+  @if (false) {
+  <div
+    class="absolute top-full left-0 right-0 mt-2 bg-white border border-solid border-[#e9e9e9] rounded-[5px] shadow-lg z-50 overflow-hidden max-h-[400px] overflow-y-auto">
+    <div
+      class="flex items-center gap-3 p-3 hover:bg-[#f7f7f8] transition-colors duration-200 cursor-pointer border-b border-solid border-[#e9e9e9] last:border-b-0">
+      <div
+        class="w-[50px] h-[50px] shrink-0 bg-[#f7f7f8] rounded-[5px] overflow-hidden flex items-center justify-center">
+        <i class="ri-shopping-bag-line text-[24px] text-[#64b496]"></i>
+      </div>
+
+      <div class="flex-1 min-w-0">
+        <h4 class="font-Poppins text-[14px] font-medium text-[#444] truncate mb-1">
+          Queso Fresco
+        </h4>
+        <p class="font-Poppins text-[12px] text-[#999] capitalize">Lacteos</p>
+      </div>
+
+      <div class="shrink-0 text-right">
+        @if (false) {
+        <div class="flex items-center gap-2">
+          <span class="font-Poppins text-[12px] text-[#999] line-through">
+            ${{ 100.0 }}
+          </span>
+          <span class="font-Poppins text-[14px] font-semibold text-[#64b496]">
+            ${{ (100.0 * (1 - 0 / 100)).toFixed(2) }}
+          </span>
+        </div>
+        <span class="inline-block mt-1 px-2 py-0.5 bg-[#64b496] text-white text-[10px] font-medium rounded-[3px]">
+          -{{ 0 }}%
+        </span>
+        } @else {
+        <span class="font-Poppins text-[14px] font-semibold text-[#64b496]">
+          ${{ 100.0 }}
+        </span>
+        }
+      </div>
+    </div>
+  </div>
+  }
+
+  @if (false) {
+  <div
+    class="absolute top-full left-0 right-0 mt-2 bg-white border border-solid border-[#e9e9e9] rounded-[5px] shadow-lg z-50 p-4">
+    <div class="text-center">
+      <i class="ri-search-line text-[32px] text-[#999] mb-2"></i>
+      <p class="font-Poppins text-[14px] text-[#777] mb-0">
+        No se encontraron productos para "{{ 'producto' }}"
+      </p>
+    </div>
+  </div>
+  }
+</form>
