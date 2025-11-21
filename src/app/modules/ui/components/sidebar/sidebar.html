@@ -31,20 +31,16 @@
             class="dropdown-list py-[12px] block capitalize text-[15px] font-medium text-[#444] border-b border-solid border-[#e9e9e9]">Inicio</a>
         </li>
 
-        <!-- Categorías dinámicas -->
-        <!-- @for (cat of categoryService.categories(); track cat.id) {
-          <li class="dropdown drop-list relative leading-[28px]">
-            <span
-              class="menu-toggle h-[48px] absolute top-0 right-0 z-[-1] flex justify-center items-center cursor-pointer bg-transparent"
-            ></span>
-            <a
-              href="javascript:void(0)"
-              class="dropdown-list py-[12px] block capitalize text-[15px] font-medium text-[#444] border-b border-solid border-[#e9e9e9]"
-            >
-              <i [class]="cat.icon || ''" class="pr-[8px]"></i>{{ cat.name }}
-            </a>
-          </li>
-        } -->
+        @for (cat of categoryStateService.categories(); track cat.id) {
+        <li class="dropdown drop-list relative leading-[28px]">
+          <span
+            class="menu-toggle h-[48px] absolute top-0 right-0 z-[-1] flex justify-center items-center cursor-pointer bg-transparent"></span>
+          <a href="javascript:void(0)"
+            class="dropdown-list py-[12px] block capitalize text-[15px] font-medium text-[#444] border-b border-solid border-[#e9e9e9]">
+            <i [class]="cat.icon || ''" class="pr-[8px]"></i>{{ cat.name }}
+          </a>
+        </li>
+        }
       </ul>
     </div>
   </div>

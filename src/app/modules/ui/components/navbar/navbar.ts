@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-// import { InputSearchProduct } from '../input-search-product/input-search-product';
 import { SidebarService } from '../../../../shared/services/sidebar';
-// import { CategoryService } from '../../../modules/categories/services/category';
-// import { ProductService } from '../../../modules/products/services/product';
+import { CategoryStateService } from '@/modules/categories/services/category-state-service';
+import { CartsidebarService } from '@/modules/cart/services/cartsidebar-service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +10,9 @@ import { SidebarService } from '../../../../shared/services/sidebar';
 })
 export class Navbar {
   private sidebarService = inject(SidebarService);
-  // categoryService = inject(CategoryService);
-  // productService = inject(ProductService);
   isProductsOpen = false;
+  categoryStateService = inject(CategoryStateService);
+  cartsidebarService = inject(CartsidebarService);
 
   toggleProductsMenu(): void {
     this.isProductsOpen = !this.isProductsOpen;

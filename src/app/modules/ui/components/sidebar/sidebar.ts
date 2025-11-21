@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SidebarService } from '../../../../shared/services/sidebar';
-// import { CategoryService } from '../../../modules/categories/services/category';
+import { CategoryStateService } from '@/modules/categories/services/category-state-service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +10,7 @@ import { SidebarService } from '../../../../shared/services/sidebar';
 })
 export class Sidebar {
   sidebarService = inject(SidebarService);
-  // categoryService = inject(CategoryService);
+  categoryStateService = inject(CategoryStateService);
 
   onClose(): void {
     this.sidebarService.close();

@@ -72,7 +72,7 @@ export class Hero implements OnInit, OnDestroy {
   startAutoplay(): void {
     this.intervalId = setInterval(() => {
       this.nextSlide();
-    }, 10000);
+    }, 5000);
   }
 
   stopAutoplay(): void {
