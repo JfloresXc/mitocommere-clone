@@ -1,0 +1,104 @@
+<div class="px-[12px] mb-[30px] aos-init aos-animate flex" data-aos="fade-up" data-aos-duration="2000"
+  data-aos-delay="400">
+  <div
+    class="cr-shop-sideview p-[24px] bg-[#f7f7f8] border border-solid border-[#e9e9e9] rounded-[5px] sticky top-[30px] w-full">
+    <div class="cr-shop-categories">
+      <h4
+        class="cr-shop-sub-title mb-0 pb-[10px] font-Poppins text-[16px] font-medium leading-[1.6] text-[#2b2b2d] capitalize border-b border-solid border-[#e9e9e9] max-[992px]:text-[18px]">
+        Category
+      </h4>
+      <div class="cr-checkbox pt-[28px] max-[992px]:pt-[30px]">
+        <div class="checkbox-group flex items-center relative mb-[15px]">
+          <input type="checkbox" id="drinks" class="h-[initial] w-[initial] m-0 p-0 hidden cursor-pointer" />
+          <label for="drinks"
+            class="relative font-Poppins text-[14px] text-[#7a7a7a] cursor-pointer capitalize inline-block">Juice &amp;
+            Drinks</label>
+          <span class="font-Poppins text-[12px] text-[#7a7a7a] absolute right-0">[20]</span>
+        </div>
+        <div class="checkbox-group flex items-center relative mb-[15px]">
+          <input type="checkbox" id="drinks1" class="h-[initial] w-[initial] m-0 p-0 hidden cursor-pointer" />
+          <label for="drinks1"
+            class="relative font-Poppins text-[14px] text-[#7a7a7a] cursor-pointer capitalize inline-block">Dairy &amp;
+            Milk</label>
+          <span class="font-Poppins text-[12px] text-[#7a7a7a] absolute right-0">[54]</span>
+        </div>
+        <div class="checkbox-group flex items-center relative">
+          <input type="checkbox" id="drinks2" class="h-[initial] w-[initial] m-0 p-0 hidden cursor-pointer" />
+          <label for="drinks2"
+            class="relative font-Poppins text-[14px] text-[#7a7a7a] cursor-pointer capitalize inline-block">Snack &amp;
+            Spice</label>
+          <span class="font-Poppins text-[12px] text-[#7a7a7a] absolute right-0">[64]</span>
+        </div>
+      </div>
+    </div>
+    <div class="cr-shop-price pt-[25px]">
+      <h4
+        class="cr-shop-sub-title mb-0 pb-[10px] font-Poppins text-[16px] font-medium leading-[1.6] text-[#2b2b2d] capitalize border-b border-solid border-[#e9e9e9] max-[992px]:text-[18px]">
+        Precio
+      </h4>
+      <div class="price-range-slider w-full mt-[30px]">
+        <!-- Price range display -->
+        <div class="flex justify-between items-center mb-6">
+          <div class="text-center">
+            <div class="text-xs text-gray-500 mb-1">Mínimo</div>
+            <div class="text-lg font-semibold text-[#64b496]">
+              ${{ minPrice() | number: '1.0-0' }}
+            </div>
+          </div>
+          <div class="text-gray-300 text-xl">—</div>
+          <div class="text-center">
+            <div class="text-xs text-gray-500 mb-1">Máximo</div>
+            <div class="text-lg font-semibold text-[#64b496]">
+              ${{ maxPrice() | number: '1.0-0' }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom dual range slider -->
+        <div class="relative mb-8">
+          <div class="h-1.5 bg-gray-200 rounded-full relative">
+            <!-- Active range bar -->
+            <div class="absolute h-1.5 bg-[#64b496] rounded-full" [style.left.%]="(minPrice() / 100000) * 100"
+              [style.right.%]="100 - (maxPrice() / 100000) * 100"></div>
+          </div>
+
+          <!-- Min range input -->
+          <input type="range" [(ngModel)]="minPrice" [min]="0" [max]="100000" [step]="5000"
+            class="absolute w-full top-0 -mt-0.5 pointer-events-none opacity-0" style="z-index: 3" />
+
+          <!-- Max range input -->
+          <input type="range" [(ngModel)]="maxPrice" [min]="0" [max]="100000" [step]="5000"
+            class="absolute w-full top-0 -mt-0.5 pointer-events-none opacity-0" style="z-index: 4" />
+
+          <!-- Custom thumbs -->
+          <div class="absolute w-4 h-4 bg-white border-2 border-[#64b496] rounded-full shadow-md -mt-1.5 cursor-pointer"
+            [style.left.%]="(minPrice() / 100000) * 100" style="transform: translateX(-50%); top: 0; z-index: 5"></div>
+          <div class="absolute w-4 h-4 bg-white border-2 border-[#64b496] rounded-full shadow-md -mt-1.5 cursor-pointer"
+            [style.left.%]="(maxPrice() / 100000) * 100" style="transform: translateX(-50%); top: 0; z-index: 5"></div>
+        </div>
+
+        <!-- Quick price buttons -->
+        <div class="grid grid-cols-3 gap-2 mb-4">
+          <button type="button"
+            class="px-3 py-2 text-xs border border-gray-300 rounded hover:border-[#64b496] hover:text-[#64b496] transition-colors">
+            Hasta $20k
+          </button>
+          <button type="button"
+            class="px-3 py-2 text-xs border border-gray-300 rounded hover:border-[#64b496] hover:text-[#64b496] transition-colors">
+            $20k - $50k
+          </button>
+          <button type="button"
+            class="px-3 py-2 text-xs border border-gray-300 rounded hover:border-[#64b496] hover:text-[#64b496] transition-colors">
+            Más de $50k
+          </button>
+        </div>
+
+        <!-- Apply button -->
+        <button type="button"
+          class="cr-button w-full h-[40px] font-bold transition-all duration-300 ease-in-out py-[8px] px-[22px] text-[14px] font-Manrope capitalize leading-[1.2] bg-[#64b496] text-white border border-solid border-[#64b496] rounded-[5px] flex items-center justify-center hover:bg-black hover:border-black">
+          Aplicar Filtro
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
