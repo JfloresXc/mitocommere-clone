@@ -16,6 +16,10 @@ export class ProductCard {
   store = inject(Store);
 
   addToCart() {
-    this.store.dispatch(CartActions.addToCart({ product: this.product() }));
+    this.store.dispatch(
+      CartActions.addToCart({
+        product: this.product(),
+      }),
+    );
   }
 }

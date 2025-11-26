@@ -6,5 +6,5 @@ export const selectCartState = createFeatureSelector<readonly Product[]>('cart')
 export const selectCartProducts = createSelector(selectCartState, (state) => state);
 
 export const selectCartTotal = createSelector(selectCartState, (state) =>
-  state.reduce((total, product) => total + (product?.price ?? 0), 0),
+  state.reduce((total, product) => total + (product?.price ?? 0) * (product?.quantity ?? 0), 0),
 );
