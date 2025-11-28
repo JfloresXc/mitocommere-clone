@@ -5,21 +5,12 @@
       <div
         class="cr-image-inner zoom-image-hover w-full h-full flex items-center justify-center relative overflow-hidden max-[992px]:pointer-events-none"
         style="position: relative; overflow: hidden">
-        <img [src]="`https://maraviyainfotech.com/projects/carrot-tailwind/assets/${product().image}`" alt="product-1"
+        <img 
+          [ngSrc]="`https://maraviyainfotech.com/projects/carrot-tailwind/assets/${product().image}`" 
+          width="600"
+          height="600"
+          alt="product-1"
           class="w-full rounded-[5px]" />
-        <img role="presentation" alt=""
-          [src]="`https://maraviyainfotech.com/projects/carrot-tailwind/assets/${product().image}`" class="zoomImg"
-          style="
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            opacity: 0;
-            width: 600px;
-            height: 600px;
-            border: none;
-            max-width: none;
-            max-height: none;
-          " />
       </div>
       <div
         class="cr-side-view transition-all duration-[0.4s] ease-in-out absolute z-20 top-[15px] right-[-40px] grid opacity-0 max-[992px]:right-[12px]">

@@ -1,6 +1,5 @@
 import { Component, signal, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 interface Slide {
   id: number;
@@ -14,7 +13,7 @@ interface Slide {
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './hero.html',
   styles: `
     @keyframes fadeIn {

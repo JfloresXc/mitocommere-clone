@@ -2,10 +2,11 @@ import { Component, computed, inject, input } from '@angular/core';
 import { Product } from '../../models/Product';
 import { Store } from '@ngrx/store';
 import { CartActions } from '@/store/cart/cart.actions';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './product-card.html',
   styles: ``,
 })
