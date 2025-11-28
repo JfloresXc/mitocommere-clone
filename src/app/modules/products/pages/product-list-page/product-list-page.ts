@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ProductFilters } from '../../components/product-filters/product-filters';
 import { ProductList } from '../../components/product-list/product-list';
+import { ProductService } from '../../services/product-service';
+import { ActivatedRoute } from '@angular/router';
+import { rxResource, toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+import { GetProductDTO } from '../../models/GetProductDTO';
 
+const DEFAULT_DATA: GetProductDTO = {
+  data: [],
+};
 @Component({
   selector: 'app-product-list-page',
   imports: [ProductFilters, ProductList],
@@ -15,7 +23,7 @@ import { ProductList } from '../../components/product-list/product-list';
             <app-product-filters></app-product-filters>
           </div>
           <div class="w-2/3">
-            <app-product-list></app-product-list>
+            <app-product-list [products]="products()"></app-product-list>
           </div>
         </div>
       </div>
@@ -23,4 +31,19 @@ import { ProductList } from '../../components/product-list/product-list';
   `,
   styles: ``,
 })
-export class ProductListPage {}
+export class ProductListPage {
+  productService = inject(ProductService);
+  activatedRoute = inject(ActivatedRoute);
+  searchTerm = toSignal(
+    this.activatedRoute.queryParamMap.pipe(map((params) => params.get('search') || '')),
+  );
+
+  productsResource = rxResource({
+    params: () => ({
+      searchTerm: this.searchTerm(),
+    }),
+    stream: ({ params: { searchTerm } }) => this.productService.getProducts(searchTerm ?? ''),
+    defaultValue: DEFAULT_DATA,
+  });
+  products = computed(() => this.productsResource.value()?.data || []);
+}

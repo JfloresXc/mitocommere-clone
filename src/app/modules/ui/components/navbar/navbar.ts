@@ -3,10 +3,11 @@ import { SidebarService } from '../../../../shared/services/sidebar';
 import { CategoryStateService } from '@/modules/categories/services/category-state-service';
 import { CartsidebarService } from '@/modules/cart/services/cartsidebar-service';
 import { InputSearchProduct } from '../input-search-product/input-search-product';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [InputSearchProduct],
+  imports: [InputSearchProduct, RouterLink],
   templateUrl: './navbar.html',
 })
 export class Navbar {

@@ -3,6 +3,7 @@ import { ProductService } from '@/modules/products/services/product-service';
 import { Component, computed, inject, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime, of, switchMap } from 'rxjs';
 
 const DEFAULT_DATA: GetProductDTO = {
@@ -24,6 +25,7 @@ const DEFAULT_DATA: GetProductDTO = {
 export class InputSearchProduct {
   searchTerm = signal('');
   productService = inject(ProductService);
+  router = inject(Router);
 
   productData = toSignal(
     toObservable(this.searchTerm).pipe(
@@ -38,4 +40,14 @@ export class InputSearchProduct {
     },
   );
   products = computed(() => this.productData()?.data || []);
+
+  searchProducts() {
+    if (this.searchTerm()) {
+      this.router.navigate(['/products'], {
+        queryParams: {
+          search: this.searchTerm(),
+        },
+      });
+    }
+  }
 }

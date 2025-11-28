@@ -1,12 +1,13 @@
 import { Component, input } from '@angular/core';
-import { PriceFilter } from '../product-filters/product-filters';
+import { Product } from '../../models/Product';
+import { ProductCard } from '../product-card/product-card';
 
 @Component({
   selector: 'app-product-list',
-  imports: [],
+  imports: [ProductCard],
   templateUrl: './product-list.html',
   styles: ``,
 })
 export class ProductList {
-  priceFilter = input<PriceFilter | null>(null);
+  products = input.required<Product[]>();
 }
