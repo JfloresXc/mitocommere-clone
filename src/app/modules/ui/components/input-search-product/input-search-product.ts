@@ -1,6 +1,6 @@
 import { GetProductDTO } from '@/modules/products/models/GetProductDTO';
 import { ProductService } from '@/modules/products/services/product-service';
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ const DEFAULT_DATA: GetProductDTO = {
   imports: [FormsModule],
   templateUrl: './input-search-product.html',
 })
-export class InputSearchProduct {
+export class InputSearchProduct implements OnInit {
   searchTerm = signal('');
   productService = inject(ProductService);
   router = inject(Router);
@@ -49,5 +49,9 @@ export class InputSearchProduct {
         },
       });
     }
+  }
+
+  ngOnInit(): void {
+    console.log('ME HIDRATÉ!!');
   }
 }

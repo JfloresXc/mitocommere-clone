@@ -10,7 +10,10 @@
             <img src="/img/logo/dark-logo.png" alt="logo"
               class="dark-logo hidden h-[35px] w-[115px] max-[576px]:w-[100px]" />
           </a>
-          <app-input-search-product></app-input-search-product>
+
+          @defer(hydrate on interaction){
+            <app-input-search-product></app-input-search-product>
+          }
 
           <div class="cr-right-bar flex max-[992px]:hidden">
             <ul class="navbar-nav m-auto relative z-3">
