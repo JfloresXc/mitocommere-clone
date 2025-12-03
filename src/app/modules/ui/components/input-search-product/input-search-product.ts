@@ -3,7 +3,7 @@ import { ProductService } from '@/modules/products/services/product-service';
 import { Component, computed, inject, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { debounceTime, of, switchMap } from 'rxjs';
 
 const DEFAULT_DATA: GetProductDTO = {
@@ -19,7 +19,7 @@ const DEFAULT_DATA: GetProductDTO = {
 };
 @Component({
   selector: 'app-input-search-product',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './input-search-product.html',
 })
 export class InputSearchProduct {

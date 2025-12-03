@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { ProductImage } from '../../models/ProductImage';
 
@@ -11,7 +11,16 @@ import { ProductImage } from '../../models/ProductImage';
 export class ProductImagePreview {
   productImages = input<ProductImage[]>([]);
   selectedImageIndex = signal(0);
-  featuredImageUrl = signal('');
+  featuredImageUrl = computed(() => {
+    if (this.selectedImageIndex() == 0) {
+      const productImages = this.productImages();
+      const featuredImage = productImages.find((image) => image.featured);
+      return featuredImage?.image ?? '';
+    } else {
+      const findedProductImage = this.productImages()[this.selectedImageIndex()];
+      return findedProductImage?.image ?? '';
+    }
+  });
 
   selectImage(index: number) {
     this.selectedImageIndex.set(index);

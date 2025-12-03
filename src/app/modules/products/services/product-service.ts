@@ -20,4 +20,8 @@ export class ProductService {
       : `${environment.apiUrl}/api/products`;
     return this.httpClient.get<GetProductDTO>(url);
   }
+
+  getProductById(id: string) {
+    return this.httpClient.get<Product>(`${environment.apiUrl}/api/products/detail/${id}`);
+  }
 }
