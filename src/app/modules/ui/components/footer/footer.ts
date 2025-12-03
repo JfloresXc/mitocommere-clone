@@ -35,11 +35,11 @@ export class Footer {
     { icon: 'ri-instagram-line', url: 'https://instagram.com' },
   ];
 
-  newsletterEmail = '';
+  newsletterEmail = signal('');
 
   onNewsletterSubmit(): void {
-    if (this.newsletterEmail) {
-      this.newsletterEmail = '';
+    if (this.newsletterEmail()) {
+      this.newsletterEmail.set('');
     }
   }
 }

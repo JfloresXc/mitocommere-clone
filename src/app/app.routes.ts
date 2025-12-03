@@ -13,4 +13,11 @@ export const routes: Routes = [
         (mod) => mod.ProductListPage,
       ),
   },
+  {
+    path: 'products/:id',
+    loadComponent: () =>
+      import('./modules/products/pages/product-detail-page/product-detail-page').then(
+        (mod) => mod.ProductDetailPage,
+      ),
+  },
 ];
