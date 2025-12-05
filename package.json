@@ -9,7 +9,9 @@
     "lint": "ng lint",
     "serve:ssr:mitocommerce": "node dist/mitocommerce/server/server.mjs",
     "test": "npx jest",
-    "test:watch": "npx jest --watch"
+    "test:watch": "npx jest --watch",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "private": true,
   "dependencies": {

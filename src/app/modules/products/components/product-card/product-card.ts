@@ -11,7 +11,15 @@ import { NgOptimizedImage } from '@angular/common';
   styles: ``,
 })
 export class ProductCard {
-  product = input.required<Product>();
+  product = input<Product>({
+    name: '',
+    id: '0',
+    price: 0,
+    rating: 0,
+    stock: 0,
+    category: '',
+    image: '',
+  });
   ratingArray = computed(() => Array.from({ length: Math.round(this.product().rating ?? 0) ?? 0 }));
 
   store = inject(Store);

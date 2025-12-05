@@ -9,5 +9,5 @@ import { ProductCard } from '../product-card/product-card';
   styles: ``,
 })
 export class ProductList {
-  products = input.required<Product[]>();
+  products = input<Product[]>([]);
 }

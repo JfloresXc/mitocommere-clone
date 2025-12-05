@@ -119,7 +119,7 @@ npm run cy:open
 npm start
 
 # En otra terminal, ejecuta los tests
-npm run cy:run
+npm run cy:open
 ```
 
 ---
