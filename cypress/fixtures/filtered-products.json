@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Laptop Gamer",
+      "price": 1500,
+      "description": "Una laptop potente para gaming.",
+      "stock": 10,
+      "images": ["image1.jpg", "image2.jpg"],
+      "category": { "id": "cat1", "name": "Electronics" }
+    }
+  ]
+}

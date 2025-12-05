@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Laptop Gamer",
+      "price": 1500,
+      "description": "Una laptop potente para gaming.",
+      "stock": 10,
+      "images": ["image1.jpg", "image2.jpg"],
+      "category": { "id": "cat1", "name": "Electronics" }
+    },
+    {
+      "id": "2",
+      "name": "Mouse Inalámbrico",
+      "price": 50,
+      "description": "Un mouse ergonómico y preciso.",
+      "stock": 100,
+      "images": ["mouse.jpg"],
+      "category": { "id": "cat1", "name": "Electronics" }
+    },
+    {
+      "id": "3",
+      "name": "Teclado Mecánico",
+      "price": 120,
+      "description": "Teclado con switches mecánicos para una mejor experiencia.",
+      "stock": 50,
+      "images": ["keyboard.jpg"],
+      "category": { "id": "cat1", "name": "Electronics" }
+    }
+  ]
+}

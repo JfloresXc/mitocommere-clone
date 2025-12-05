@@ -20,4 +20,8 @@ export const routes: Routes = [
         (mod) => mod.ProductDetailPage,
       ),
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./modules/auth/pages/login-page').then((mod) => mod.LoginPage),
+  },
 ];

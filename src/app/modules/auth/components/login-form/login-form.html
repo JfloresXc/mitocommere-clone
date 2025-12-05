@@ -1,4 +1,4 @@
-<form class="cr-content-form">
+<form class="cr-content-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group mb-[24px]">
     <label for="email"
       class="mb-[9px] text-[#444] text-[15px] font-medium tracking-[0] leading-none inline-block">Correo
