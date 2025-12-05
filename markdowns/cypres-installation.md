@@ -9,7 +9,7 @@ Esta guía detalla los pasos para instalar Cypress manualmente en un proyecto An
 Instala Cypress como dependencia de desarrollo:
 
 ```bash
-npm install cypress --save-dev
+npm install cypress --save-dev --force
 ```
 
 ---
@@ -47,9 +47,7 @@ Crea un archivo nuevo: **`cypress/tsconfig.json`** y pega el siguiente contenido
     "types": ["cypress", "node"],
     "baseUrl": "../"
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }
 ```
 
@@ -225,11 +223,13 @@ describe('Home Page', () => {
 ## 12. Mejores Prácticas
 
 1. **Usa selectores `data-cy`**: Más robustos que clases CSS
+
    ```html
    <button data-cy="add-to-cart-button">Add to cart</button>
    ```
 
 2. **Agrupa tests relacionados con `describe`**
+
    ```typescript
    describe('Product Detail Page', () => {
      describe('Product Images', () => {
@@ -241,6 +241,7 @@ describe('Home Page', () => {
    ```
 
 3. **Usa `beforeEach` para setup común**
+
    ```typescript
    beforeEach(() => {
      cy.visit('/products/1');
@@ -248,6 +249,7 @@ describe('Home Page', () => {
    ```
 
 4. **Evita `cy.wait(ms)` fijos**: Usa assertions automáticas
+
    ```typescript
    // ❌ Malo
    cy.wait(1000);
@@ -261,14 +263,17 @@ describe('Home Page', () => {
 ## 13. Troubleshooting
 
 ### Error: `Cannot find module 'cypress'`
+
 ```bash
 npm install cypress --save-dev
 ```
 
 ### Conflictos de tipos entre Jest y Cypress
+
 Asegúrate de tener `cypress/tsconfig.json` correctamente configurado con `"types": ["cypress", "node"]`.
 
 ### Tests no encuentran elementos
+
 Verifica que el servidor de Angular esté corriendo en `http://localhost:4200`.
 
 ---
