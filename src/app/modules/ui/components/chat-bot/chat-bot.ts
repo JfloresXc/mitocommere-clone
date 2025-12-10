@@ -1,6 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { ChatMessage } from '../../models/ChatMessage';
 import { FormsModule } from '@angular/forms';
+import { ChatBotService } from '../../services/chat-bot.service';
 // import { ChatService } from '@/shared/services/chat.service';
 
 @Component({
@@ -24,7 +25,7 @@ import { FormsModule } from '@angular/forms';
   `,
 })
 export class ChatBot {
-  // private chatService = inject(ChatService);
+  private chatService = inject(ChatBotService);
 
   isExpanded = signal(false);
   messages = signal<ChatMessage[]>([
@@ -42,7 +43,14 @@ export class ChatBot {
     this.isExpanded.update((value) => !value);
   }
 
-  sendMessage() {}
+  sendMessage() {
+    this.isTyping.set(true);
+    this.chatService.sendMessage(this.currentMessage).subscribe((response) => {
+      this.messages.update((messages) => [...messages, response]);
+      this.currentMessage = '';
+      this.isTyping.set(false);
+    });
+  }
 
   formatTime(date: Date): string {
     return new Date(date).toLocaleTimeString('es-ES', {

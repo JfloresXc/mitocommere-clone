@@ -7,10 +7,11 @@ import { ShoppingCartSidebar } from './modules/cart/components/shopping-cart-sid
 import { Store } from '@ngrx/store';
 import { CartLocalStorageActions } from './store/cart/cart.actions';
 import { Alert } from './modules/ui/components/alert/alert';
+import { ChatBot } from './modules/ui/components/chat-bot/chat-bot';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Navbar, Sidebar, ShoppingCartSidebar, Alert],
+  imports: [RouterOutlet, Footer, Navbar, Sidebar, ShoppingCartSidebar, Alert, ChatBot],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

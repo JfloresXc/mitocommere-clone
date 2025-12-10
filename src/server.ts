@@ -6,23 +6,28 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import { genkit } from 'genkit';
+import { googleAI } from '@genkit-ai/google-genai';
+import { environment } from '@envs/environment';
+import { ChatMessage } from '@/modules/ui/models/ChatMessage';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+app.use(express.json());
+
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Genkit configuration
  */
+const ai = genkit({
+  plugins: [
+    googleAI({
+      apiKey: environment.googleAIKey,
+    }),
+  ],
+});
 
 /**
  * Serve static files from /browser
@@ -36,14 +41,55 @@ app.use(
 );
 
 /**
+ * Routes
+ */
+app.post('/api/chat-bot', async (req, res) => {
+  try {
+    const { message } = req.body;
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    const systemPrompt = `
+    Nosotros somos Mitocommerce, una empresa que vende productos orgánicos como plátanos, 
+    manzanas, naranjas, peras y uvas, entre muchas otras.
+  Eres un asistente virtual de un ecommerce. Tu objetivo es ayudar a los clientes con:
+  -  Preguntas sobre productos
+  -  Procesamiento de pedidos
+  -  Devoluciones y cambios
+  -  Preguntas generales sobre la tienda
+  `;
+
+    const response = await ai.generate({
+      model: 'googleai/gemini-2.5-flash',
+      prompt: message,
+      system: systemPrompt,
+      config: {
+        temperature: 0.7,
+      },
+    });
+
+    const botMessage: ChatMessage = {
+      id: Date.now().toString(),
+      content: response.text,
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+
+    return res.json({ ...botMessage });
+  } catch (error) {
+    console.error('Error generating response:', error);
+    return res.status(500).json({ error: 'Error al procesar el mensaje' });
+  }
+});
+
+/**
  * Handle all other requests by rendering the Angular application.
  */
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
     .catch(next);
 });
 
