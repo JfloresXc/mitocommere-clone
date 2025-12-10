@@ -30,18 +30,23 @@
                     <a class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
                       href="register.html">Registrarse</a>
                   </li>
-                  <li class="w-full mr-[0]">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
-                      href="checkout.html">Pagar</a>
-                  </li>
-                  <li class="w-full mr-[0]">
+                  @if(!authService.isAuthenticated()){
+                  <li class="w-full mr-0">
                     <a class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
                       routerLink="/login">Iniciar Sesión</a>
                   </li>
+                  }@else {
+                  <li class="w-full mr-0">
+                    <button (click)="authService.logout()"
+                      class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal">Cerrar
+                      Sesión</button>
+                  </li>
+                  }
+
                 </ul>
               </li>
             </ul>
-            <a href="wishlist.html"
+            <a routerLink="/wishlist"
               class="cr-right-bar-item pr-[30px] transition-all duration-300 ease-in-out flex items-center">
               <i class="ri-heart-3-line pr-[5px] text-[21px] leading-[17px]"></i>
               <span
@@ -127,7 +132,7 @@
                 </ul>
               </li>
             </ul>
-            <a href="wishlist.html"
+            <a routerLink="/wishlist"
               class="cr-right-bar-item transition-all duration-300 ease-in-out mr-[16px] max-[992px]:mr-[20px]">
               <i class="ri-heart-line text-[20px]"></i>
             </a>

@@ -6,10 +6,11 @@ import { Sidebar } from './modules/ui/components/sidebar/sidebar';
 import { ShoppingCartSidebar } from './modules/cart/components/shopping-cart-sidebar/shopping-cart-sidebar';
 import { Store } from '@ngrx/store';
 import { CartLocalStorageActions } from './store/cart/cart.actions';
+import { Alert } from './modules/ui/components/alert/alert';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Navbar, Sidebar, ShoppingCartSidebar],
+  imports: [RouterOutlet, Footer, Navbar, Sidebar, ShoppingCartSidebar, Alert],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

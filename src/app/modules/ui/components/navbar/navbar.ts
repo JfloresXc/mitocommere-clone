@@ -4,6 +4,7 @@ import { CategoryStateService } from '@/modules/categories/services/category-sta
 import { CartsidebarService } from '@/modules/cart/services/cartsidebar-service';
 import { InputSearchProduct } from '../input-search-product/input-search-product';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '@/modules/auth/services/auth-service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,7 @@ export class Navbar {
   isProductsOpen = false;
   categoryStateService = inject(CategoryStateService);
   cartsidebarService = inject(CartsidebarService);
+  authService = inject(AuthService);
 
   toggleProductsMenu(): void {
     this.isProductsOpen = !this.isProductsOpen;
