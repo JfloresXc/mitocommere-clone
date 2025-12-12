@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   apiUrl: 'https://eccommerce-api-p29d.onrender.com',
-  googleAIKey: 'AIzaSyC6-iDDlR_KvFL7TxBE4dhdVxNEECvjlIM',
+  googleAIKey: 'AIzaSyCx8rSCuJiFeA8HPEjIdVoLo6IOAS-XgyA',
 };

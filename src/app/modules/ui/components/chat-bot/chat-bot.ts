@@ -45,6 +45,15 @@ export class ChatBot {
 
   sendMessage() {
     this.isTyping.set(true);
+
+    const chatMessage: ChatMessage = {
+      id: Date.now().toString(),
+      content: this.currentMessage,
+      sender: 'user',
+      timestamp: new Date(),
+    };
+    this.messages.update((messages) => [...messages, chatMessage]);
+
     this.chatService.sendMessage(this.currentMessage).subscribe((response) => {
       this.messages.update((messages) => [...messages, response]);
       this.currentMessage = '';
