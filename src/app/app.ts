@@ -9,6 +9,8 @@ import { CartLocalStorageActions } from './store/cart/cart.actions';
 import { Alert } from './modules/ui/components/alert/alert';
 import { ChatBot } from './modules/ui/components/chat-bot/chat-bot';
 
+import { Action } from '@ngrx/store';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Footer, Navbar, Sidebar, ShoppingCartSidebar, Alert, ChatBot],
