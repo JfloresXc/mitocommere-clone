@@ -5,8 +5,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-breadcrumb',
   imports: [RouterLink],
   templateUrl: './breadcrumb.html',
-  styles: ``
+  styles: ``,
 })
-export class Breadcrumb {
-
-}
+export class Breadcrumb {}

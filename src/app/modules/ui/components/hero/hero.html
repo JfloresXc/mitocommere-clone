@@ -50,9 +50,7 @@
                     >
                       {{ slide.description }}
                     </p>
-                    <div
-                      class="cr-last-buttons mt-[30px] flex max-[992px]:mt-[18px]"
-                    >
+                    <div class="cr-last-buttons mt-[30px] flex max-[992px]:mt-[18px]">
                       <a
                         [href]="slide.buttonLink"
                         class="cr-button mr-[20px] h-[40px] font-bold transition-all duration-300 ease-in-out py-[8px] px-[22px] text-[14px] font-Manrope capitalize leading-[1.2] bg-[#64b496] text-white border border-solid border-[#64b496] rounded-[5px] flex items-center justify-center hover:bg-black hover:border-black"
@@ -74,18 +72,14 @@
       class="absolute left-[20px] top-1/2 -translate-y-1/2 z-3 w-[40px] h-[40px] bg-white/80 hover:bg-[#64b496] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg max-[768px]:w-[35px] max-[768px]:h-[35px] max-[768px]:left-[10px] cursor-pointer"
       aria-label="Slide anterior"
     >
-      <i
-        class="ri-arrow-left-s-line text-[24px] text-black hover:text-white"
-      ></i>
+      <i class="ri-arrow-left-s-line text-[24px] text-black hover:text-white"></i>
     </button>
     <button
       (click)="nextSlide()"
       class="absolute right-[20px] top-1/2 -translate-y-1/2 z-3 w-[40px] h-[40px] bg-white/80 hover:bg-[#64b496] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg max-[768px]:w-[35px] max-[768px]:h-[35px] max-[768px]:right-[10px] cursor-pointer"
       aria-label="Siguiente slide"
     >
-      <i
-        class="ri-arrow-right-s-line text-[24px] text-black hover:text-white"
-      ></i>
+      <i class="ri-arrow-right-s-line text-[24px] text-black hover:text-white"></i>
     </button>
 
     <div
@@ -96,9 +90,7 @@
           (click)="goToSlide(slide.id)"
           [class]="
             'w-[10px] h-[10px] rounded-full transition-all duration-300 ' +
-            (currentSlide() === slide.id
-              ? 'bg-[#64b496] w-[30px]'
-              : 'bg-white/60 hover:bg-white')
+            (currentSlide() === slide.id ? 'bg-[#64b496] w-[30px]' : 'bg-white/60 hover:bg-white')
           "
           [attr.aria-label]="'Ir al slide ' + (slide.id + 1)"
         ></button>

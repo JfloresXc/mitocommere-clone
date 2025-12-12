@@ -1,62 +1,97 @@
-<header class="h-[142px] max-[992px]:h-[133px] max-[576px]:h-[173px] bg-white border-b border-solid border-[#e9e9e9]">
+<header
+  class="h-[142px] max-[992px]:h-[133px] max-[576px]:h-[173px] bg-white border-b border-solid border-[#e9e9e9]"
+>
   <div
-    class="flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]">
+    class="flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]"
+  >
     <div class="flex flex-wrap w-full">
       <div class="w-full px-[12px]">
         <div
-          class="top-header py-[20px] flex flex-row gap-[10px] justify-between border-b border-solid border-[#e9e9e9] relative z-4 max-[576px]:py-[15px] max-[576px]:block">
-          <a [routerLink]="['/']" class="cr-logo max-[576px]:mb-[15px] max-[576px]:flex max-[576px]:justify-center">
-            <img src="/img/logo/logo.png" alt="logo" class="logo block h-[35px] w-[115px] max-[576px]:w-[100px]" />
-            <img src="/img/logo/dark-logo.png" alt="logo"
-              class="dark-logo hidden h-[35px] w-[115px] max-[576px]:w-[100px]" />
+          class="top-header py-[20px] flex flex-row gap-[10px] justify-between border-b border-solid border-[#e9e9e9] relative z-4 max-[576px]:py-[15px] max-[576px]:block"
+        >
+          <a
+            [routerLink]="['/']"
+            class="cr-logo max-[576px]:mb-[15px] max-[576px]:flex max-[576px]:justify-center"
+          >
+            <img
+              src="/img/logo/logo.png"
+              alt="logo"
+              class="logo block h-[35px] w-[115px] max-[576px]:w-[100px]"
+            />
+            <img
+              src="/img/logo/dark-logo.png"
+              alt="logo"
+              class="dark-logo hidden h-[35px] w-[115px] max-[576px]:w-[100px]"
+            />
           </a>
 
-          @defer(hydrate on interaction){
-          <app-input-search-product></app-input-search-product>
+          @defer (hydrate on interaction) {
+            <app-input-search-product></app-input-search-product>
           }
 
           <div class="cr-right-bar flex max-[992px]:hidden">
             <ul class="navbar-nav m-auto relative z-3">
               <li class="nav-item dropdown relative">
-                <a class="nav-link dropdown-toggle cr-right-bar-item transition-all duration-300 ease-in-out flex items-center relative text-[14px] font-medium text-black z-1 py-[11px] pr-[30px] pl-[8px] max-[1200px]:py-[8px]"
-                  href="javascript:void(0)">
+                <a
+                  class="nav-link dropdown-toggle cr-right-bar-item transition-all duration-300 ease-in-out flex items-center relative text-[14px] font-medium text-black z-1 py-[11px] pr-[30px] pl-[8px] max-[1200px]:py-[8px]"
+                  href="javascript:void(0)"
+                >
                   <i class="ri-user-3-line pr-[5px] text-[21px] leading-[17px]"></i>
                   <span
-                    class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] text-[15px] font-medium text-black tracking-[0.03rem]">Cuenta</span>
+                    class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] text-[15px] font-medium text-black tracking-[0.03rem]"
+                    >Cuenta</span
+                  >
                 </a>
                 <ul
-                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]">
+                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]"
+                >
                   <li class="w-full mr-[0]">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
-                      href="register.html">Registrarse</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
+                      href="register.html"
+                      >Registrarse</a
+                    >
                   </li>
-                  @if(!authService.isAuthenticated()){
-                  <li class="w-full mr-0">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
-                      routerLink="/login">Iniciar Sesión</a>
-                  </li>
-                  }@else {
-                  <li class="w-full mr-0">
-                    <button (click)="authService.logout()"
-                      class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal">Cerrar
-                      Sesión</button>
-                  </li>
+                  @if (!authService.isAuthenticated()) {
+                    <li class="w-full mr-0">
+                      <a
+                        class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
+                        routerLink="/login"
+                        >Iniciar Sesión</a
+                      >
+                    </li>
+                  } @else {
+                    <li class="w-full mr-0">
+                      <button
+                        (click)="authService.logout()"
+                        class="dropdown-item transition-all duration-300 ease-in-out py-[7px] px-[20px] bg-white relative capitalize block w-full text-[#777] text-[13px] font-normal"
+                      >
+                        Cerrar Sesión
+                      </button>
+                    </li>
                   }
-
                 </ul>
               </li>
             </ul>
-            <a routerLink="/wishlist"
-              class="cr-right-bar-item pr-[30px] transition-all duration-300 ease-in-out flex items-center">
+            <a
+              routerLink="/wishlist"
+              class="cr-right-bar-item pr-[30px] transition-all duration-300 ease-in-out flex items-center"
+            >
               <i class="ri-heart-3-line pr-[5px] text-[21px] leading-[17px]"></i>
               <span
-                class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] font-medium text-black">Favoritos</span>
+                class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] font-medium text-black"
+                >Favoritos</span
+              >
             </a>
-            <button (click)="cartsidebarService.open()"
-              class="cr-right-bar-item Shopping-toggle transition-all duration-300 ease-in-out flex items-center">
+            <button
+              (click)="cartsidebarService.open()"
+              class="cr-right-bar-item Shopping-toggle transition-all duration-300 ease-in-out flex items-center"
+            >
               <i class="ri-shopping-cart-line pr-[5px] text-[21px] leading-[17px]"></i>
               <span
-                class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] font-medium text-black">Carrito</span>
+                class="transition-all duration-300 ease-in-out font-Poppins text-[15px] leading-[15px] font-medium text-black"
+                >Carrito</span
+              >
             </button>
           </div>
         </div>
@@ -65,127 +100,192 @@
   </div>
   <div class="cr-fix" id="cr-main-menu-desk">
     <div
-      class="flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]">
-      <div class="cr-menu-list w-full px-[12px] relative flex items-center flex-row justify-between">
+      class="flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]"
+    >
+      <div
+        class="cr-menu-list w-full px-[12px] relative flex items-center flex-row justify-between"
+      >
         <div class="cr-category-icon-block py-[10px] max-[992px]:hidden">
           <div class="cr-category-menu relative">
             <div
-              class="cr-category-toggle w-[35px] h-[35px] border border-solid border-[#e9e9e9] rounded-[5px] cursor-pointer flex items-center justify-center">
+              class="cr-category-toggle w-[35px] h-[35px] border border-solid border-[#e9e9e9] rounded-[5px] cursor-pointer flex items-center justify-center"
+            >
               <i class="ri-menu-2-line text-[22px] text-[#2b2b2d] leading-[14px] block"></i>
             </div>
           </div>
           <div
-            class="cr-cat-dropdown transition-all duration-300 ease-in-out w-[600px] mt-[15px] p-[15px] absolute bg-white opacity-0 invisible left-[12px] z-[10] rounded-[5px] border border-solid border-[#e9e9e9]">
+            class="cr-cat-dropdown transition-all duration-300 ease-in-out w-[600px] mt-[15px] p-[15px] absolute bg-white opacity-0 invisible left-[12px] z-[10] rounded-[5px] border border-solid border-[#e9e9e9]"
+          >
             <div class="cr-cat-block">
               <div class="cr-cat-tab flex">
                 <ul
                   class="cr-tab-list nav flex-column nav-pills min-w-[180px] mr-[12px] rounded-[5px] flex flex-wrap flex-col justify-center"
-                  id="myTab">
+                  id="myTab"
+                >
                   @for (cat of categoryStateService.categories(); track cat.id) {
-                  <li
-                    class="transition-all duration-300 ease-in-out py-[10px] px-[15px] bg-white border border-solid border-[#e9e9e9] rounded-[5px] flex items-center cursor-pointer mb-[5px]">
-                    <a href="javascript:void(0)"
-                      class="text-[13px] text-[#4b5966] tracking-[0] font-medium text-left capitalize">
-                      <i [attr.class]="(cat.icon || '') + ' pr-[8px]'"></i>{{ cat.name }}
-                    </a>
-                  </li>
+                    <li
+                      class="transition-all duration-300 ease-in-out py-[10px] px-[15px] bg-white border border-solid border-[#e9e9e9] rounded-[5px] flex items-center cursor-pointer mb-[5px]"
+                    >
+                      <a
+                        href="javascript:void(0)"
+                        class="text-[13px] text-[#4b5966] tracking-[0] font-medium text-left capitalize"
+                      >
+                        <i [attr.class]="(cat.icon || '') + ' pr-[8px]'"></i>{{ cat.name }}
+                      </a>
+                    </li>
                   }
-                  <a class="transition-all duration-300 ease-in-out py-[10px] px-[15px] bg-white text-[13px] text-[#4b5966] font-medium text-left capitalize border border-solid border-[#e9e9e9] rounded-[5px] flex items-center"
-                    href="javascript:void(0)">
+                  <a
+                    class="transition-all duration-300 ease-in-out py-[10px] px-[15px] bg-white text-[13px] text-[#4b5966] font-medium text-left capitalize border border-solid border-[#e9e9e9] rounded-[5px] flex items-center"
+                    href="javascript:void(0)"
+                  >
                     Ver Todo
                   </a>
                 </ul>
-                <div class="tab-content transition-all duration-300 ease-in-out w-full" id="myTabContent">
+                <div
+                  class="tab-content transition-all duration-300 ease-in-out w-full"
+                  id="myTabContent"
+                >
                   <!-- Contenido de pestañas removido: ya no hay subcategorías, solo categorías planas. -->
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <nav class="justify-between relative flex flex-wrap items-center max-[992px]:w-full max-[992px]:py-[10px]">
-          <button type="button" (click)="onMenuToggle()"
+        <nav
+          class="justify-between relative flex flex-wrap items-center max-[992px]:w-full max-[992px]:py-[10px]"
+        >
+          <button
+            type="button"
+            (click)="onMenuToggle()"
             class="navbar-toggler py-[7px] px-[14px] hidden text-[16px] leading-none max-[992px]:flex max-[992px]:p-0 max-[992px]:border-0 cursor-pointer"
-            aria-label="Abrir menú de navegación">
+            aria-label="Abrir menú de navegación"
+          >
             <i class="ri-menu-3-line max-[992px]:text-[20px]"></i>
           </button>
           <div class="cr-header-buttons hidden max-[992px]:flex max-[992px]:items-center">
-            <ul class="navbar-nav relative z-[3] m-auto max-[1200px]:mr-[-5px] max-[992px]:m-0 flex flex-col">
+            <ul
+              class="navbar-nav relative z-[3] m-auto max-[1200px]:mr-[-5px] max-[992px]:m-0 flex flex-col"
+            >
               <li class="nav-item dropdown relative">
-                <a class="nav-link py-[11px] px-[8px] text-[14px] font-medium text-black z-[1] relative max-[1200px]:py-[8px] max-[1200px]:px-[0] max-[992px]:mr-[20px]"
-                  href="javascript:void(0)">
+                <a
+                  class="nav-link py-[11px] px-[8px] text-[14px] font-medium text-black z-[1] relative max-[1200px]:py-[8px] max-[1200px]:px-[0] max-[992px]:mr-[20px]"
+                  href="javascript:void(0)"
+                >
                   <i class="ri-user-3-line text-[20px]"></i>
                 </a>
                 <ul
-                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto right-0 bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]">
+                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto right-0 bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]"
+                >
                   <li class="w-full">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
-                      href="register.html">Registrarse</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
+                      href="register.html"
+                      >Registrarse</a
+                    >
                   </li>
                   <li class="w-full">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
-                      href="checkout.html">Pagar</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
+                      href="checkout.html"
+                      >Pagar</a
+                    >
                   </li>
                   <li class="w-full">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
-                      routerLink="/login">Iniciar Sesión</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out w-full block py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777]"
+                      routerLink="/login"
+                      >Iniciar Sesión</a
+                    >
                   </li>
                 </ul>
               </li>
             </ul>
-            <a routerLink="/wishlist"
-              class="cr-right-bar-item transition-all duration-300 ease-in-out mr-[16px] max-[992px]:mr-[20px]">
+            <a
+              routerLink="/wishlist"
+              class="cr-right-bar-item transition-all duration-300 ease-in-out mr-[16px] max-[992px]:mr-[20px]"
+            >
               <i class="ri-heart-line text-[20px]"></i>
             </a>
-            <a href="javascript:void(0)"
-              class="cr-right-bar-item Shopping-toggle transition-all duration-300 ease-in-out mr-[16px] max-[992px]:m-0">
+            <a
+              href="javascript:void(0)"
+              class="cr-right-bar-item Shopping-toggle transition-all duration-300 ease-in-out mr-[16px] max-[992px]:m-0"
+            >
               <i class="ri-shopping-cart-line text-[20px]"></i>
             </a>
           </div>
-          <div class="min-[992px]:flex min-[992px]:basis-auto grow items-center hidden" id="navbarSupportedContent">
+          <div
+            class="min-[992px]:flex min-[992px]:basis-auto grow items-center hidden"
+            id="navbarSupportedContent"
+          >
             <ul
-              class="navbar-nav flex min-[992px]:flex-row items-center m-auto relative z-[3] min-[992px]:flex-row max-[1200px]:mr-[-5px] max-[992px]:m-0">
-              <li class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]">
-                <a class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
-                  href="javascript:void(0)">
+              class="navbar-nav flex min-[992px]:flex-row items-center m-auto relative z-[3] min-[992px]:flex-row max-[1200px]:mr-[-5px] max-[992px]:m-0"
+            >
+              <li
+                class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]"
+              >
+                <a
+                  class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
+                  href="javascript:void(0)"
+                >
                   Inicio
                 </a>
                 <ul
-                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]">
+                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]"
+                >
                   <li class="w-full mr-[0]">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
-                      href="index.html">Abarrotes</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
+                      href="index.html"
+                      >Abarrotes</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
-                      href="demo-2.html">Moda</a>
+                    <a
+                      class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
+                      href="demo-2.html"
+                      >Moda</a
+                    >
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]">
-                <a class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
-                  href="javascript:void(0)">
+              <li
+                class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]"
+              >
+                <a
+                  class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
+                  href="javascript:void(0)"
+                >
                   Categorías
                 </a>
                 <ul
-                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]">
+                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]"
+                >
                   @for (cat of categoryStateService.categories(); track cat.id) {
-                  <li class="w-full mr-[0]">
-                    <a class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
-                      href="javascript:void(0)">
-                      {{ cat.name }}
-                    </a>
-                  </li>
+                    <li class="w-full mr-[0]">
+                      <a
+                        class="dropdown-item transition-all duration-300 ease-in-out font-Poppins py-[7px] px-[20px] bg-white relative capitalize text-[13px] text-[#777] hover:text-[#64b496] whitespace-nowrap tracking-[0.03rem] block w-full"
+                        href="javascript:void(0)"
+                      >
+                        {{ cat.name }}
+                      </a>
+                    </li>
                   }
                 </ul>
               </li>
-              <li class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]"
-                [class.open]="isProductsOpen">
-                <a class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
-                  href="javascript:void(0)" (click)="toggleProductsMenu()">
+              <li
+                class="nav-item dropdown relative mr-[25px] max-[1400px]:mr-[20px] max-[1200px]:mr-[30px]"
+                [class.open]="isProductsOpen"
+              >
+                <a
+                  class="nav-link dropdown-toggle font-Poppins text-[14px] font-medium block text-black z-[1] flex items-center relative py-[11px] px-[8px] max-[1200px]:py-[8px] max-[1200px]:px-[0]"
+                  href="javascript:void(0)"
+                  (click)="toggleProductsMenu()"
+                >
                   Productos
                 </a>
                 <ul
-                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]">
+                  class="dropdown-menu transition-all duration-300 ease-in-out py-[8px] min-w-[160px] mt-[35px] absolute text-left opacity-0 invisible left-auto bg-white rounded-[5px] block z-[9] border border-solid border-[#e9e9e9]"
+                >
                   <!-- @for (
                   product of productService.getFeaturedProducts();
                   track product.id

@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-popular-products-skeleton',
   standalone: true,
   template: `
-    <section class="section-popular-product-shape relative pb-[100px] max-[1200px]:pb-[70px] mt-[100px]">
-      <div class="popular-product-container flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]">
+    <section
+      class="section-popular-product-shape relative pb-[100px] max-[1200px]:pb-[70px] mt-[100px]"
+    >
+      <div
+        class="popular-product-container flex flex-wrap justify-between relative items-center mx-auto min-[1600px]:max-w-[1500px] min-[1400px]:max-w-[1320px] min-[1200px]:max-w-[1140px] min-[992px]:max-w-[960px] min-[768px]:max-w-[720px] min-[576px]:max-w-[540px]"
+      >
         <div class="flex flex-wrap w-full">
           <div class="w-full px-[12px]">
             <div class="mb-[30px]">
@@ -27,7 +31,9 @@ import { Component } from '@angular/core';
               @for (item of [1, 2, 3, 4, 5]; track item) {
                 <div class="border border-[#eee] rounded-[5px] p-[20px] bg-white">
                   <!-- Image Skeleton -->
-                  <div class="w-full h-[200px] bg-gray-200 rounded-[5px] animate-pulse mb-[15px]"></div>
+                  <div
+                    class="w-full h-[200px] bg-gray-200 rounded-[5px] animate-pulse mb-[15px]"
+                  ></div>
                   <!-- Content Skeleton -->
                   <div class="flex flex-col gap-2">
                     <div class="h-[12px] w-[30%] bg-gray-200 rounded animate-pulse"></div>
