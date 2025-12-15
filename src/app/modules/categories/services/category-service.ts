@@ -12,4 +12,8 @@ export class CategoryService {
   getCategories() {
     return this.httpClient.get<Category[]>(`${environment.apiUrl}/api/categories`);
   }
+
+  getFeaturedCategories() {
+    return this.httpClient.get<Category[]>(`${environment.apiUrl}/api/categories/featured`);
+  }
 }

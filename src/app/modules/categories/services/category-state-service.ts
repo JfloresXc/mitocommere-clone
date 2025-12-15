@@ -8,5 +8,5 @@ import { CategoryService } from './category-service';
 })
 export class CategoryStateService {
   categoryService = inject(CategoryService);
-  categories = toSignal<Category[]>(this.categoryService.getCategories());
+  categories = toSignal<Category[]>(this.categoryService.getFeaturedCategories());
 }

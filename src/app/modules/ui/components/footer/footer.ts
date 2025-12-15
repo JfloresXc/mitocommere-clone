@@ -1,14 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { CategoryStateService } from '@/modules/categories/services/category-state-service';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './footer.html',
   styles: ``,
 })
 export class Footer {
   currentYear = signal(new Date().getFullYear());
+  categoryStateService = inject(CategoryStateService);
 
   companyLinks = [
     { title: 'Sobre Nosotros', url: '/about' },
@@ -19,14 +22,14 @@ export class Footer {
     { title: 'Centro de Soporte', url: '/faq' },
   ];
 
-  categoryLinks = [
-    { title: 'Lácteos y Panadería', url: '/shop/dairy-bakery' },
-    { title: 'Frutas y Verduras', url: '/shop/fruits-vegetable' },
-    { title: 'Snacks y Especias', url: '/shop/snack-spice' },
-    { title: 'Jugos y Bebidas', url: '/shop/juice-drinks' },
-    { title: 'Pollo y Carne', url: '/shop/chicken-meat' },
-    { title: 'Comida Rápida', url: '/shop/fast-food' },
-  ];
+  decodeURI = decodeURI;
+  categoryLinks = computed(
+    () =>
+      this.categoryStateService.categories()?.map((category) => ({
+        title: category.name,
+        url: `/products?category=${category.name}`,
+      })) ?? [],
+  );
 
   socialMedia = [
     { icon: 'ri-facebook-line', url: 'https://facebook.com' },

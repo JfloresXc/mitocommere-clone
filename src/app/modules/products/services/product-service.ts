@@ -14,10 +14,12 @@ export class ProductService {
     return this.httpClient.get<Product[]>(`${environment.apiUrl}/api/products/featured`);
   }
 
-  getProducts(searchTerm: string) {
+  getProducts({ searchTerm, category }: { searchTerm?: string; category?: string }) {
     const url = searchTerm
       ? `${environment.apiUrl}/api/products?search=${searchTerm}`
-      : `${environment.apiUrl}/api/products`;
+      : category
+        ? `${environment.apiUrl}/api/products?category=${category}`
+        : `${environment.apiUrl}/api/products`;
     return this.httpClient.get<GetProductDTO>(url);
   }
 

@@ -37,12 +37,17 @@ export class ProductListPage {
   searchTerm = toSignal(
     this.activatedRoute.queryParamMap.pipe(map((params) => params.get('search') || '')),
   );
+  category = toSignal(
+    this.activatedRoute.queryParamMap.pipe(map((params) => params.get('category') || '')),
+  );
 
   productsResource = rxResource({
     params: () => ({
       searchTerm: this.searchTerm(),
+      category: this.category(),
     }),
-    stream: ({ params: { searchTerm } }) => this.productService.getProducts(searchTerm ?? ''),
+    stream: ({ params: { searchTerm, category } }) =>
+      this.productService.getProducts({ searchTerm: searchTerm ?? '', category: category ?? '' }),
     defaultValue: DEFAULT_DATA,
   });
   products = computed(() => this.productsResource.value()?.data || []);
